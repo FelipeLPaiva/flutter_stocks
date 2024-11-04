@@ -1,0 +1,7 @@
+{
+  "appTitle": "flutter_sample_app",
+  "stocksScreen": "Stock List",
+  "@appTitle": {
+    "description": "Stocks Demo"
+  }
+}
