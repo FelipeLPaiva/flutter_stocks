@@ -22,4 +22,13 @@ class StocksViewModel with ChangeNotifier {
       setStocksList(ApiResponse.error(error.toString()));
     });
   }
+
+  void fetchStockDetail(String stockId) async {
+    _stocksRepository.fetchStocData(stockId).then((data) {
+      print('before the data fetch is complete');
+      print(data);
+    }).onError((error, stackTrace){
+      print(ApiResponse.error(error.toString()));
+    });
+  }
 }

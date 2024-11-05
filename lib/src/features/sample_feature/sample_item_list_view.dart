@@ -22,6 +22,7 @@ class _SampleItemListView extends State<SampleItemListView> {
   @override
   void initState() {
     stocksViewModel.fetchStocksApi();
+    stocksViewModel.fetchStockDetail('AAPL');
     super.initState();
   }
 
@@ -71,7 +72,7 @@ class _SampleItemListView extends State<SampleItemListView> {
                         subtitle: Text(value
                               .stocksList.data!.stockListModel![index].company
                               .toString()),
-                        leading: Image.network('https://image.pngaaa.com/237/4788237-middle.png', 
+                        leading: Image.network('', 
                           errorBuilder :(context, error, stackTrace) {
                             return CircleAvatar(
                               backgroundColor: Colors.blue,
