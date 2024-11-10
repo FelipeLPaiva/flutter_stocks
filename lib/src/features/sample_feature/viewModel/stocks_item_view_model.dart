@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample_app/src/data/response/api_reponse.dart';
 import 'package:flutter_sample_app/src/models/stock_detail_model.dart';
-import 'package:flutter_sample_app/src/models/stock_list_model.dart';
 import 'package:flutter_sample_app/src/repository/stocks_repository.dart';
 
 class StocksItemViewModel with ChangeNotifier {
   final _stocksRepository = StocksRepository();
 
-  ApiResponse<StocDetailkModel> stocksList = ApiResponse.loading();
+  ApiResponse<StockDetailModel> stocksList = ApiResponse.loading();
 
-  setStocksDetail(ApiResponse<StocDetailkModel> response){
+  setStocksDetail(ApiResponse<StockDetailModel> response){
     stocksList = response;
     notifyListeners();
   }

@@ -6,7 +6,7 @@ enum BullBearCondition {
   neutral,
 }
 
-class StocDetailkModel extends Equatable {
+class StockDetailModel extends Equatable {
   final String tickerSymbol;
   final double currentPrice;
   final double highPriceDay;
@@ -17,7 +17,7 @@ class StocDetailkModel extends Equatable {
   final int requestUnixTimestampSeconds;
   final DateTime requestDateTime;
 
-  StocDetailkModel({
+  StockDetailModel({
     required this.tickerSymbol,
     required this.currentPrice,
     required this.highPriceDay,
@@ -42,8 +42,8 @@ class StocDetailkModel extends Equatable {
         requestDateTime,
       ];
 
-  static StocDetailkModel generateModel(String tickerSymbol, dynamic json) {
-    return StocDetailkModel(
+  static StockDetailModel generateModel(String tickerSymbol, dynamic json) {
+    return StockDetailModel(
       tickerSymbol: tickerSymbol,
       currentPrice: json['c'].toDouble() as double,
       highPriceDay: json['h'].toDouble() as double,
@@ -60,7 +60,7 @@ class StocDetailkModel extends Equatable {
 
   static DateTime _convertUnixTimestampSecondsToDateTime(
       {required int unixTimestampSeconds}) {
-    return new DateTime.fromMillisecondsSinceEpoch(unixTimestampSeconds * 1000);
+    return DateTime.fromMillisecondsSinceEpoch(unixTimestampSeconds * 1000);
   }
 
   static BullBearCondition _mapBullBearStockCondition(

@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:flutter_sample_app/src/data/network/base_api_service.dart';
 import 'package:flutter_sample_app/src/data/network/network_api_services.dart';
@@ -21,14 +20,14 @@ class StocksRepository {
     }
   }
 
-  Future<StocDetailkModel> fetchStocData(String symbolId) async {
+  Future<StockDetailModel> fetchStocData(String symbolId) async {
     try {
       print('fetching stock detail - $symbolId');
       var searchString = TextUtils().trimAndUppercaseString(symbolId);
       print('${AppUrls.API_BASE_URL}/api/v1/quote?symbol=$searchString&token=${AppUrls.FINHUB_Key}');
       dynamic response = await _apiServices.getApiResponse(
         '${AppUrls.API_BASE_URL}/api/v1/quote?symbol=$searchString&token=${AppUrls.FINHUB_Key}');
-      return response = StocDetailkModel.generateModel(searchString, response);
+      return response = StockDetailModel.generateModel(searchString, response);
     } catch (e) {
       print(e.toString());
       rethrow;

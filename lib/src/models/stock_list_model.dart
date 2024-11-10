@@ -7,9 +7,9 @@ class StockListModel {
   StockListModel.fromJson(List<dynamic> json) {
     if (json.isNotEmpty) {
       stockListModel = <StockModel>[];
-      json.forEach((v) {
+      for (var v in json) {
         stockListModel!.add(StockModel.fromJson(v as Map<String, dynamic>));
-      });
+      }
     } else{
       print("test");
     }
